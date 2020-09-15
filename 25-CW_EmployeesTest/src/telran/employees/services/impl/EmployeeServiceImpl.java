@@ -2,6 +2,7 @@ package telran.employees.services.impl;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.IntSummaryStatistics;
@@ -59,6 +60,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 			IntSummaryStatistics stats = v.stream().mapToInt(Employee::getSalary).summaryStatistics();
 			Departmentlist.add(new DepartmentSalary(k, stats.getAverage()));
 		});
+		Arrays.sort(Departmentlist.toArray(new DepartmentSalary[0]),
+				(o1, o2) -> Double.compare(o2.getAvgSalary(), o1.getAvgSalary()));
+
+		// Collections.sort(Departmentlist,(DepartmentSalary a, DepartmentSalary b) ->
+		// b.getAvgSalary().compareTo(a.getAvgSalary()));
+
 		return Departmentlist.toArray(new DepartmentSalary[0]);
 	}
 
