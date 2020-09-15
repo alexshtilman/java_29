@@ -3,10 +3,11 @@
     1. Write two classes in the package DTO (these classes should have the method equals implementations for testing per all fields, constructors for all fields and getters for all fields)
 
        ```JAVA
+       //list of employees receiving salary in the range    from minSalary (inclusive) to  maxSalary (exclusive)
        class MinMaxSalaryEmployees {
            int minSalary;
            int maxSalary;
-           List<Employee> employees; //list of employees receiving salary in the range    from minSalary (inclusive) to  maxSalary (exclusive)
+           List<Employee> employees; 
        }
 
        class DepartmentSalary {
